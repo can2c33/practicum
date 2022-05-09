@@ -6,4 +6,6 @@ rsconnect::setAccountInfo(name='chriscanthom',
 
 library(rsconnect)
 ##add app name one made##
-rsconnect::deployApp('path/to/your/app')
+rsconnect::deployApp('D:/Users/can2c/Documents/GitHub/practicum')
+
+

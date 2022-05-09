@@ -9,39 +9,39 @@
 
 library(shiny)
 
+
 # Define UI for application that draws a histogram
 ui <- fluidPage(
 
     # Application title
-    titlePanel("Old Faithful Geyser Data"),
+    titlePanel("IOPHD Conduit"),
 
-    # Sidebar with a slider input for number of bins 
+    # Sidebar with drop down menu for job titles
     sidebarLayout(
         sidebarPanel(
-            sliderInput("bins",
-                        "Number of bins:",
-                        min = 1,
-                        max = 50,
-                        value = 30)
+            selectInput("select", h3("Select an Job Title:"),
+                choices = list("Human Resources Manager" = 1,
+                        "Workforce Insights Analyst" = 2,
+                        "Business Development Consultant" = 3,
+                        "Organizational Effectiveness Manager" = 4,
+                        "Psycometrician" = 5)
+                        )
         ),
 
-        # Show a plot of the generated distribution
+        # Show a table of the qualifications and where in the program you can get the experience
         mainPanel(
-           plotOutput("distPlot")
-        )
+           tableOutput("selected_var")
+        ),
+        
+        #show a table for where in the program you can get the experience
     )
 )
 
 # Define server logic required to draw a histogram
 server <- function(input, output) {
 
-    output$distPlot <- renderPlot({
-        # generate bins based on input$bins from ui.R
-        x    <- faithful[, 2]
-        bins <- seq(min(x), max(x), length.out = input$bins + 1)
-
-        # draw the histogram with the specified number of bins
-        hist(x, breaks = bins, col = 'darkgray', border = 'white')
+    output$selected_var <- renderText({paste("selected", input$var)
+        
     })
 }
 
