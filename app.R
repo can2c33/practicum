@@ -40,10 +40,11 @@ ui <- fluidPage(
     )
 )
 
-# Define server logic required to draw a histogram
+# Define server logic required to output the exp and program features
 server <- function(input, output) {
 
-    output$selected_var <- renderText({paste("You selected:", input$title)
+    output$selected_var <- renderText({paste("You selected:", 
+                    input$title)
         
     })
 }
