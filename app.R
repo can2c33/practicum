@@ -8,7 +8,9 @@
 #
 
 library(shiny)
-
+library(readxl)
+exp <- read_excel("data/titleswide.xlsx")
+data <- read_excel("data/data.xlsx")
 
 # Define UI for application that draws a histogram
 ui <- fluidPage(
@@ -19,19 +21,20 @@ ui <- fluidPage(
     # Sidebar with drop down menu for job titles
     sidebarLayout(
         sidebarPanel(
-            selectInput("select", h3("Select an Job Title:"),
-                choices = list("Human Resources Manager" = 1,
-                        "Workforce Insights Analyst" = 2,
-                        "Business Development Consultant" = 3,
-                        "Organizational Effectiveness Manager" = 4,
-                        "Psycometrician" = 5)
+            helpText("Find the experience needed for the workforce through the program"),
+            
+            varSelectInput("title", 
+                        label = "Select an Job Title:",
+                        exp
                         )
         ),
 
-        # Show a table of the qualifications and where in the program you can get the experience
+        # show the title selected
         mainPanel(
-           tableOutput("selected_var")
+           textOutput("selected_var")
         ),
+        #Show a table of the qualifications and where in the 
+        #program you can get the experience
         
         #show a table for where in the program you can get the experience
     )
@@ -40,7 +43,7 @@ ui <- fluidPage(
 # Define server logic required to draw a histogram
 server <- function(input, output) {
 
-    output$selected_var <- renderText({paste("selected", input$var)
+    output$selected_var <- renderText({paste("You selected:", input$title)
         
     })
 }
