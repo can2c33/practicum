@@ -5,9 +5,9 @@ account: chriscanthom
 server: shinyapps.io
 hostUrl: https://api.shinyapps.io/v1
 appId: 6264996
-bundleId: 5891525
+bundleId: 5891688
 url: https://chriscanthom.shinyapps.io/practicum/
-when: 1652194852.29495
-lastSyncTime: 1652194852.29495
+when: 1652197939.81876
+lastSyncTime: 1652197939.81876
 asMultiple: FALSE
 asStatic: FALSE
