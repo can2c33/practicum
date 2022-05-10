@@ -35,10 +35,10 @@ ui <- fluidPage(
         ),
         #Show a table of the qualifications and where in the 
         #program you can get the experience
-            tableOutput("exper"),
+            #tableOutput("exper"),
         #show a table for where in the program you can get the 
         #experience
-            plotOutput("program")
+            #plotOutput("program")
     )
 )
 
