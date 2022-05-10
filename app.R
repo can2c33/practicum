@@ -32,10 +32,10 @@ ui <- fluidPage(
         # show the title selected
         mainPanel(
            textOutput("selected_var")
-        ),
+        )
         #Show a table of the qualifications and where in the 
         #program you can get the experience
-            dataTableOutput("exp_table")
+           # dataTableOutput("exp_table")
         #show a table for where in the program you can get the 
         #experience
             #plotOutput("program")
@@ -48,10 +48,8 @@ server <- function(input, output) {
     output$selected_var <- renderText({paste("You selected:", 
                     input$title)
         })
-        output$exp_table <- renderDataTable(
-            exp)
-        
-    
+        #output$exp_table <- renderDataTable(
+         #   exp)
 }
 
 # Run the application 
